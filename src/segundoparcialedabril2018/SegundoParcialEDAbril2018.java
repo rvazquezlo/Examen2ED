@@ -69,6 +69,8 @@ public class SegundoParcialEDAbril2018 {
                         cola.agrega(auxiliar.quita());
                         contador++;
                     }
+                    if(contador == n - 1)
+                        cola.agrega(encontrado);
                 }
                 else{//dato no esta en cola
                     while(!auxiliar.estaVacia())
@@ -192,6 +194,11 @@ public class SegundoParcialEDAbril2018 {
         //3) imprime: true
         //   uno cuatro dos  tres 
         System.out.println(cambiaPosicionDe(cola1, "cuatro", 2));
+        System.out.println(toStringCola(cola1));
+        
+        //3) imprime: true
+        //   uno cuatro dos  tres 
+        System.out.println(cambiaPosicionDe(cola1, "cuatro", 4));
         System.out.println(toStringCola(cola1));
         
         //4) imprime: false
