@@ -83,11 +83,11 @@ public class SegundoParcialEDAbril2018 {
         return cambio;
     }
     
-    private static<T> boolean esSubConjuntoDe(ConjuntoADT<T> uno, ConjuntoADT<T> dos, Iterator<T> iterador){
+    private static<T> boolean esSubConjuntoDe(ConjuntoADT<T> dos, Iterator<T> iterador){
         if(!iterador.hasNext())
             return true;
         if(dos.contiene(iterador.next())){
-            return esSubConjuntoDe(uno, dos, iterador);   
+            return esSubConjuntoDe(dos, iterador);   
         }
         return false;
     }
@@ -109,7 +109,7 @@ public class SegundoParcialEDAbril2018 {
         
         if(uno != null && dos != null && uno.getCardinalidad() <= dos.getCardinalidad()){
             iterador = uno.iterator();
-            subConjunto = esSubConjuntoDe(uno, dos, iterador); 
+            subConjunto = esSubConjuntoDe(dos, iterador); 
         }
         else
             subConjunto = false;
