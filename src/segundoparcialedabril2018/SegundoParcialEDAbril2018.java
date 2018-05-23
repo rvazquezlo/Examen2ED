@@ -51,7 +51,7 @@ public class SegundoParcialEDAbril2018 {
             try{
                 auxiliar = new ColaArreglo();
                 encontrado = null;
-                while(!cola.estaVacia()){
+                while(!cola.estaVacia() && encontrado == null){
                     if(cola.primero().equals(dato)){
                         encontrado = cola.quita();
                     }
@@ -59,18 +59,23 @@ public class SegundoParcialEDAbril2018 {
                         auxiliar.agrega(cola.quita());
                     }
                 }//fin while
+                while(!cola.estaVacia())
+                    auxiliar.agrega(cola.quita());
                 if(encontrado != null){ //dato si estaba en cola
                     cambio = true;
                     contador = 0;
-                    while(!auxiliar.estaVacia()){
+                    while(!auxiliar.estaVacia() && encontrado != null){
                         if(contador == n - 1){
                             cola.agrega(encontrado);
+                            encontrado = null;
                         }
                         cola.agrega(auxiliar.quita());
                         contador++;
                     }
                     if(contador == n - 1)
                         cola.agrega(encontrado);
+                    while(!auxiliar.estaVacia())
+                        cola.agrega(auxiliar.quita());    
                 }
                 else{//dato no esta en cola
                     while(!auxiliar.estaVacia())
@@ -197,12 +202,12 @@ public class SegundoParcialEDAbril2018 {
         System.out.println(toStringCola(cola1));
         
         //3) imprime: true
-        //   uno cuatro dos  tres 
+        //   uno dos  tres cuatro
         System.out.println(cambiaPosicionDe(cola1, "cuatro", 4));
         System.out.println(toStringCola(cola1));
         
         //4) imprime: false
-        //   uno cuatro dos  tres
+        //   uno dos  tres cuatro
         System.out.println(cambiaPosicionDe(cola1, "cinco", 2));
         System.out.println(toStringCola(cola1));
         
